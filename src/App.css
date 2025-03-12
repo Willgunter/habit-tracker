@@ -1,0 +1,92 @@
+.AppContainer {
+    background: #000;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .App {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .Background {
+    /* Keep your existing background styles */
+  }
+  
+  .Banner {
+    align-items: center;
+  }
+  
+  .Logo {
+    /* Keep existing */
+  }
+  
+  .Title {
+    color: #ff00ff;
+    font-size: 32px;
+    font-family: "Courier New";
+  }
+  
+  .Subtitle {
+    color: #00ffff;
+    font-size: 24px;
+  }
+  
+  .Content {
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .Timer {
+    color: #00ff00;
+    font-size: 48px;
+  }
+  
+  .GoonButton {
+    background: linear-gradient(to right, #ff00ff, #00ffff);
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+  }
+  
+  .Score {
+    color: #ffff00;
+    font-size: 24px;
+  }
+  
+  .ResetButton {
+    background: #ff0000;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .Description {
+    color: #00ffff;
+    font-size: 18px;
+  }
+  
+  /* Bottom Nav Bar */
+  .NavBar {
+    background: #1a1a1a;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 2px solid #00ffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .NavItem {
+    padding: 10px;
+    color: #00ffff;
+  }
+  
+  .NavItem.active {
+    background: #ff00ff;
+    color: #000;
+    border-radius: 5px;
+  }

@@ -1,21 +1,41 @@
 .AppContainer {
     background: #000;
     height: 100vh;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-bottom: 80px; /* Space for nav bar */
   }
   
   .App {
     flex: 1;
     padding: 20px;
+    padding-top: 60px; /* Increased top padding to push content below notch */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    /* overflow-y: auto; */
   }
   
   .Background {
-    /* Keep your existing background styles */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
   
   .Banner {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    margin-top: 40px;
   }
   
   .Logo {
@@ -34,59 +54,321 @@
   }
   
   .Content {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    margin-top: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    width: 100%;
+    /* overflow-y: auto; */
+  }
+  
+  /* Sessions List Styles */
+  .SessionsList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .AddSessionButton {
+    background: linear-gradient(to right, #ff00ff, #00ffff);
+    padding: 12px 20px;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+    margin: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .NoSessions {
+    color: #888;
+    margin-top: 30px;
+  }
+  
+  .SessionItems {
+    width: 100%;
+    max-height: 400px;
+    /* overflow-y: auto; */
+  }
+  
+  .SessionItem {
+    background: rgba(40, 40, 40, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-left: 3px solid #ff00ff;
+  }
+  
+  .SessionTitle {
+    color: #ff00ff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .SessionDate {
+    color: #00ffff;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .SessionDescription {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .SessionLinks {
+    margin-top: 8px;
+  }
+  
+  .LinksLabel {
+    color: #00ffff;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .SessionLink {
+    color: #ff00ff;
+    font-size: 13px;
+    text-decoration: underline;
+    display: block;
+    margin-bottom: 3px;
+    word-break: break-all;
+  }
+  
+  /* Add Session Form Styles */
+  .AddSessionForm {
+    width: 100%;
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .FormTitle {
+    color: #ff00ff;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .FormGroup {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .FormLabel {
+    color: #00ffff;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .FormInput {
+    color: #333; /* Dark text on light background */
+    background-color: #fff;
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  .FormTextarea {
+    min-height: 40px;
+    padding: 8px;
+  }
+  
+  .LinkInputGroup {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .LinkInput {
+    flex: 1;
+  }
+  
+  .LinkRemoveButton {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff0000;
+    margin-left: 10px;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, 0.1);
+  }
+  
+  .AddLinkButton {
+    color: #00ffff;
+    padding: 8px;
+    margin: 10px 0;
+    text-decoration: underline;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .FormActions {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
   }
   
-  .Timer {
-    color: #00ff00;
-    font-size: 48px;
-  }
-  
-  .GoonButton {
-    background: linear-gradient(to right, #ff00ff, #00ffff);
-    padding: 15px;
-    border-radius: 10px;
+  .CancelButton {
+    background: #444;
+    padding: 10px 20px;
+    border-radius: 5px;
     color: #fff;
   }
   
-  .Score {
-    color: #ffff00;
+  .SaveButton {
+    background: linear-gradient(to right, #ff00ff, #00ffff);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  /* Stats Tab Styles */
+  .StatsTitle {
+    color: #ff00ff;
     font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .StatItem {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+    background: rgba(40, 40, 40, 0.8);
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .StatLabel {
+    color: #00ffff;
+    font-size: 16px;
+  }
+  
+  .StatValue {
+    color: #ffff00;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Detox Tab Styles */
+  .DetoxDescription {
+    color: #fff;
+    margin: 20px 0;
   }
   
   .ResetButton {
     background: #ff0000;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px 25px;
+    border-radius: 8px;
     color: #fff;
+    margin-top: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
   }
   
-  .Description {
-    color: #00ffff;
-    font-size: 18px;
-  }
-  
-  /* Bottom Nav Bar */
-  .NavBar {
-    background: #1a1a1a;
+  /* Modern Mobile Navigation Bar */
+  .MobileNavBar {
+    background: rgba(20, 20, 20, 0.95);
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 10px;
-    border-top: 2px solid #00ffff;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 80px;
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px 15px 0 0;
+    z-index: 1000;
   }
   
   .NavItem {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 12px 0;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  
+  .NavIcon {
+    font-size: 28px;
+    margin-bottom: 6px;
     color: #00ffff;
   }
   
+  .NavLabel {
+    font-size: 14px;
+    color: #00ffff;
+    /* text-transform: capitalize; */
+  }
+  
   .NavItem.active {
-    background: #ff00ff;
-    color: #000;
-    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .NavItem.active .NavIcon,
+  .NavItem.active .NavLabel {
+    color: #ff00ff;
+  }
+  
+  .NavItem.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    height: 4px;
+    background: linear-gradient(to right, #ff00ff, #00ffff);
+    border-radius: 4px 4px 0 0;
+  }
+  
+  /* Media query for smaller devices */
+  @media (max-width: 400px) {
+    .NavIcon {
+      font-size: 24px;
+    }
+    
+    .NavLabel {
+      font-size: 12px;
+    }
+    
+    .MobileNavBar {
+      height: 70px;
+    }
+    
+    .AppContainer {
+      padding-bottom: 70px;
+    }
+    
+    .FormActions {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .CancelButton, .SaveButton {
+      width: 100%;
+      text-align: center;
+    }
   }
